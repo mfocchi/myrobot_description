@@ -16,7 +16,7 @@
                                 <always_on>true</always_on>
                                 <update_rate>1000.0</update_rate>
                                 <contact>
-                                        <collision>${name}_XXXX</collision>
+                                        <collision>${name}_shoulder_link_collision</collision>
                                 </contact>
                                 <plugin name="${name}_foot_bumper" filename="libgazebo_ros_bumper.so">
                                         <bumperTopicName>/${robot_name}/${name}_foot_bumper</bumperTopicName>
