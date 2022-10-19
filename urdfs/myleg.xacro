@@ -24,7 +24,7 @@
 	<link name="${name}_shoulder_link">
 		<inertial>
 			<origin xyz="0.0 0.0 0.0"/>
-			<mass value="0.05" />
+			<mass value="2" />
 			<inertia  ixx="0.001" ixy="0.0"  ixz="0.0"  iyy="0.001"  iyz="0.0"  izz="0.001" />
 		</inertial>
 			<visual>
@@ -40,6 +40,29 @@
 			</geometry>
 		</collision>
 	</link>
+
+        <joint name="${name}_foot_fixed" type="fixed">
+            <origin rpy="0 0 0" xyz="0 0 -0.1"/>
+            <parent link="${name}_shoulder_link"/>
+            <child link="${name}_foot"/>
+        </joint>
+
+        <link name="${name}_foot">
+            <visual>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+                <geometry>
+                    <sphere radius="0.05"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+                <geometry>
+                    <sphere radius="0.05"/>
+                </geometry>
+            </collision>
+        </link>
+
+
 
         <!-- Extensions -->
         <xacro:leg_transmission name="${name}"/>
